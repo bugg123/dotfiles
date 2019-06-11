@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/corey/Projects/core/helm-charts/charts'
+let g:netrw_dirhist_2='/Users/corey/Projects/core/helm-charts/charts/test-harness'
+let g:netrw_dirhist_3='/Users/corey/Projects/core/helm-charts/charts/test-harness/templates'
+let g:netrw_dirhist_4='/Users/corey'
+let g:netrw_dirhist_5='/Users/corey/Projects/core/helm-charts/chart-src'
+let g:netrw_dirhist_6='/Users/corey/Projects/core/core-platform-infrastructure/core-demo/auth'
+let g:netrw_dirhist_7='/Users/corey/Projects/core/helm-charts/chart-src/patient-server'
+let g:netrw_dirhist_8='/Users/corey/Projects/core/helm-charts/chart-src/risk-assessment-functional-service/templates'
+let g:netrw_dirhist_9='/Users/corey/Projects/core/helm-charts/chart-src/patient-server'
