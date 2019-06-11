@@ -179,15 +179,7 @@ zstyle ':urlglobber' url-other-schema
 setopt no_rm_star_silent
 setopt no_hist_verify
 
-#source ~/.git-completion.zsh
-#autoload -Uz compinit
-#if [[ -n ${ZDOTDIR:-${HOME}}/$ZSH_COMPDUMP(#qN.mh+24) ]]; then
-#	compinit -d $ZSH_COMPDUMP;
-#else
-#	compinit -C;
-#fi;
-
 autoload -U compinit && compinit
 
-autoload -U +X bashcompinit && bashcompinit
+# autoload -U +X bashcompinit && bashcompinit
 
