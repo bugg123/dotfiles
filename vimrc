@@ -1,7 +1,8 @@
 syntax on
 
 so ~/dotfiles/vim/autoload/harlequin.vim
-
+inoremap jk <Esc>
+inoremap kj <Esc>
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 execute pathogen#infect()
