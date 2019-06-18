@@ -28,8 +28,6 @@ export PATH="/usr/local/opt/curl/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -108,6 +106,4 @@ setopt no_rm_star_silent
 setopt no_hist_verify
 
 autoload -U compinit && compinit
-
-# autoload -U +X bashcompinit && bashcompinit
-
+# zprof
