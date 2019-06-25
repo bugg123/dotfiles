@@ -27,6 +27,7 @@ export PATH="/usr/local/opt/curl/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
 export CLICOLOR=1
