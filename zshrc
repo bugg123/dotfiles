@@ -16,7 +16,7 @@ DEFAULT_USER="corey"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew osx extract zsh-autosuggestions docker kubectl kops helm kube-ps1 jenv gradle aws)
+plugins=(osx extract docker kubectl kops helm kube-ps1 jenv gradle aws)
 
 # User configuration
 
@@ -39,7 +39,7 @@ export PATH="$PATH:/Library/Graal/graalvm-ce-1.0.0-rc13/Contents/Home/bin"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 export EDITOR=vim
-export HOMEBREW_GITHUB_API_TOKEN=99088eaa315f2701bb9599157051a0983adba16c
+export HOMEBREW_GITHUB_API_TOKEN=85fa9ed5daee3b1695930fac0b035981550a0ebf
 
 alias ss='gource --seconds-per-day 0.1 --follow-user "Corey Hinkle" --hide filenames,dirnames -f'
 
@@ -48,9 +48,6 @@ alias g='git'
 alias show='defaults write com.apple.finder AppleShowAllFiles TRUE'
 alias hide='defaults write com.apple.finder AppleShowAllFiles FALSE'
 alias clearDSstore='find . -type f -name ".DS_Store" exec rm -f {} \;'
-alias dc2f='. ~/Scripts/dc2f.sh'
-alias jira='. ~/Scripts/jira.sh'
-alias pyserv='python -m SimpleHTTPServer 8000'
 alias share='mount_smbfs -N //guest:@192.168.120.10/FileShare ~/FileShare'
 alias mega='mount_smbfs -N //guest:@192.168.120.11/FileShare ~/FileShare/Megatron'
 alias bumble='mount_smbfs -N //guest:@192.168.120.10/FileShare ~/FileShare'
