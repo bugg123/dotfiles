@@ -14,4 +14,6 @@ set directory=~/dotfiles/vim/.swp//
 
 call plug#begin('~/dotfiles/vim/plugged')
 
+Plug 'junegunn/vim-xmark', { 'do': 'make' }
+
 call plug#end()
