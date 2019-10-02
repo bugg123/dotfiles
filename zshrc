@@ -3,7 +3,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/corey/.oh-my-zsh
 
-ZSH_THEME="coreyhinkle"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 DEFAULT_USER="corey"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
@@ -16,7 +16,7 @@ DEFAULT_USER="corey"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(osx extract docker kubectl kops helm kube-ps1 jenv gradle aws)
+plugins=(osx extract docker kubectl kops helm kube-ps1 jenv aws terraform)
 
 # User configuration
 
@@ -24,10 +24,14 @@ export PATH="/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/bin:/bi
 export PATH="/usr/local/sbin:$PATH"
 # Add better curl to path
 export PATH="/usr/local/opt/curl/bin:$PATH"
+export PATH="$PATH:$HOME/go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+source ~/.zsh/.p10k.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
 
 export CLICOLOR=1
@@ -41,6 +45,7 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 export EDITOR=vim
 export HOMEBREW_GITHUB_API_TOKEN=85fa9ed5daee3b1695930fac0b035981550a0ebf
+export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
 alias ss='gource --seconds-per-day 0.1 --follow-user "Corey Hinkle" --hide filenames,dirnames -f'
 
@@ -56,11 +61,6 @@ alias unshare='umount ~/FileShare'
 
 alias core='~/Projects/core'
 alias pr='open `git remote -vv | cut -f2 | cut -d " " -f1 | sed "s/.git/\/pull-requests/g"`'
-alias kafkaUp='docker-compose -f ~/Scripts/kafka-compose.yml up -dV'
-alias kafkaDown='docker-compose -f ~/Scripts/kafka-compose.yml down'
-alias kongUp='docker-compose -f ~/Scripts/kong-compose.yml up -dV'
-alias kongDown='docker-compose -f ~/Scripts/kong-compose.yml down'
-
 
 alias gn='git number'
 alias ga='git number add'
@@ -84,9 +84,6 @@ alias zsource='. ~/.zshrc'
 alias zmacs='emacs ~/.zshrc'
 alias zim='vim ~/.zshrc'
 
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 eval "$(rbenv init -)"
 
 fpath=(~/.zsh $fpath)
