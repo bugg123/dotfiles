@@ -1,3 +1,0 @@
-pane	0	0	:zsh	1	:*	0	:/Users/corey/dotfiles	1	zsh	:
-window	0	0	1	:*	b8fd,162x43,0,0,0
-state	0	
