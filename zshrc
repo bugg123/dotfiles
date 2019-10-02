@@ -46,6 +46,7 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export EDITOR=vim
 export HOMEBREW_GITHUB_API_TOKEN=85fa9ed5daee3b1695930fac0b035981550a0ebf
 export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+export AWS_SDK_LOAD_CONFIG=true
 
 alias ss='gource --seconds-per-day 0.1 --follow-user "Corey Hinkle" --hide filenames,dirnames -f'
 
