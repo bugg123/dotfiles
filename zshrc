@@ -16,16 +16,20 @@ DEFAULT_USER="corey"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(osx extract docker kubectl kops helm jenv aws terraform)
+plugins=(osx extract docker kubectl kops helm jenv aws terraform go)
 
 # User configuration
-
-export PATH="/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin"
 export PATH="/usr/local/sbin:$PATH"
 # Add better curl to path
-export PATH="/usr/local/opt/curl/bin:$PATH"
+#export PATH="/usr/local/opt/curl/bin:$PATH"
+# Add GO bin to path
 export PATH="$PATH:$HOME/go/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
+# Add the GNU utitlities to my path
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$PATH:/Library/Graal/graalvm-ce-1.0.0-rc13/Contents/Home/bin"
+
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/.p10k.zsh
@@ -37,11 +41,6 @@ source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export TERM=xterm-256color
-
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="$PATH:/Library/Graal/graalvm-ce-1.0.0-rc13/Contents/Home/bin"
-
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 export EDITOR=vim
 export HOMEBREW_GITHUB_API_TOKEN=85fa9ed5daee3b1695930fac0b035981550a0ebf
@@ -77,6 +76,7 @@ alias gw='./gradlew'
 
 alias ktok='export TOKEN=$(kubectl describe secret -n kube-system $(kubectl get secrets -n kube-system | grep default | cut -f1 -d " ") | grep -E "^token" | cut -f2 -d":" | tr -d "\t" | tr -d " ")'
 alias kminiapi='export APISERVER=$(kubectl config view | rg -A1 ".minikube" | rg https | cut -f 2- -d ":" | tr -d " ")'
+alias kg='k get'
 alias kgn='kg nodes'
 alias kd='kubectl describe'
 alias kc='kubectl create'
@@ -84,8 +84,6 @@ alias kc='kubectl create'
 alias zsource='. ~/.zshrc'
 alias zmacs='emacs ~/.zshrc'
 alias zim='vim ~/.zshrc'
-
-eval "$(rbenv init -)"
 
 fpath=(~/.zsh $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
