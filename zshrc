@@ -1,10 +1,10 @@
 # zmodload zsh/zprof
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/corey/.oh-my-zsh
+export ZSH=/home/bugg123/.oh-my-zsh
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-DEFAULT_USER="corey"
+DEFAULT_USER="bugg123"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -19,17 +19,11 @@ DEFAULT_USER="corey"
 plugins=(osx extract docker kubectl kops helm jenv aws terraform go)
 
 # User configuration
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin"
-export PATH="/usr/local/sbin:$PATH"
-# Add better curl to path
-#export PATH="/usr/local/opt/curl/bin:$PATH"
-# Add GO bin to path
-export PATH="$PATH:$HOME/go/bin"
-# Add the GNU utitlities to my path
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="$PATH:/Library/Graal/graalvm-ce-1.0.0-rc13/Contents/Home/bin"
 
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+# Add better curl to path
+# export MANPATH="/usr/local/man:$MANPATH"
+
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/.p10k.zsh
