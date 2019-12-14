@@ -23,6 +23,7 @@ plugins=(osx extract docker kubectl kops helm jenv aws terraform go)
 # Add better curl to path
 # export MANPATH="/usr/local/man:$MANPATH"
 
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/games:/usr/sbin:/usr/bin:/usr/games:/sbin:/bin:/home/linuxbrew/.linuxbrew/opt/fzf/bin"
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
 
