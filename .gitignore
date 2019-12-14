@@ -1,4 +1,4 @@
 vim/.*
-tmux/resurrect/tmux_resurrect_*
+tmux/resurrect/*
 tmux/plugins/*
 vim/plugged/*
