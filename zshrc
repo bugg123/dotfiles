@@ -24,20 +24,17 @@ plugins=(osx extract docker kubectl kops helm jenv aws terraform go)
 # export MANPATH="/usr/local/man:$MANPATH"
 
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/.p10k.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
-
+source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export TERM=xterm-256color
 
 export EDITOR=vim
-export HOMEBREW_GITHUB_API_TOKEN=85fa9ed5daee3b1695930fac0b035981550a0ebf
 export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 export AWS_SDK_LOAD_CONFIG=true
 
@@ -82,9 +79,6 @@ alias zim='vim ~/.zshrc'
 fpath=(~/.zsh $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-source /Users/corey/.zsh/zsh-git-prompt/zshrc.sh
-export GIT_PROMPT_EXECUTABLE="haskell"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 
@@ -95,3 +89,9 @@ setopt no_hist_verify
 
 autoload -U compinit && compinit
 # zprof
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/bugg123/google-cloud-sdk/path.zsh.inc' ]; then . '/home/bugg123/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/bugg123/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/bugg123/google-cloud-sdk/completion.zsh.inc'; fi
