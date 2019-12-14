@@ -5,6 +5,7 @@ inoremap jk <Esc>
 inoremap kj <Esc>
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType toml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType go setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:terraform_fmt_on_save=1
 let g:go_fmt_command = "goimports"
@@ -26,5 +27,6 @@ Plug 'cespare/vim-toml'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
