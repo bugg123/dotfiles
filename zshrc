@@ -81,7 +81,7 @@ fpath=(~/.zsh $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); export FZF_TMUX=1; fi
 
 eval "$(direnv hook zsh)"
 zstyle ':urlglobber' url-other-schema
