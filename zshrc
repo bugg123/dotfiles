@@ -92,7 +92,7 @@ source /Users/corey/.zsh/zsh-git-prompt/zshrc.sh
 export GIT_PROMPT_EXECUTABLE="haskell"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); export FZF_TMUX=1; fi
 
 eval "$(direnv hook zsh)"
 zstyle ':urlglobber' url-other-schema
