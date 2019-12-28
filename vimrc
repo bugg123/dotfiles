@@ -1,19 +1,59 @@
+" General
+set number                      "Line numbers are good
+set backspace=indent,eol,start  "Allow backspace in insert mode
+set history=1000                "Store lots of :cmdline history
+set showcmd                     "Show incomplete cmds down the bottom
+set showmode                    "Show current mode down the bottom
+set gcr=a:blinkon0              "Disable cursor blink
+set visualbell                  "No sounds
+set autoread                    "Reload files changed outside vim
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+set hidden
+
 syntax on
 let mapleader = ","
 
 inoremap jk <Esc>
 inoremap kj <Esc>
-autocmd FileType yaml,toml,go,mod setlocal ts=2 sts=2 sw=2 expandtab
+
+" Persistant Undo
+if has('persistent_undo') && isdirectory(expand('~').'/.vim/.undo')
+  silent !mkdir ~/.vim/.undo > /dev/null 2>&1
+  set undodir=~/.vim/.undo//
+  set undofile
+endif
+
+" Indention
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+
+filetype plugin on
+filetype indent on
+
+" Auto indent pasted text
+nnoremap p p=`]<C-o>
+nnoremap P P=`]<C-o>
+
+" Search
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+" Scrolling
+set scrolloff=8
+set sidescrolloff=15
+set sidescroll=1
 
 let g:terraform_fmt_on_save=1
 
 execute pathogen#infect()
-
-set backspace=indent,eol,start
-set undodir=~/dotfiles/vim/.undo//
-set backupdir=~/dotfiles/vim/.backup//
-set directory=~/dotfiles/vim/.swp//
-
 
 " Go config
 map <C-n> :cnext<CR>
@@ -59,11 +99,11 @@ Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'SirVer/ultisnips'
 Plug 'ctrlpvim/ctrlp.vim'
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#gocode_binary = '/Users/corey/go/src/github.com/stamblerre/gocode'
-
 call plug#end()
 "" call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 let g:rehash256 = 1
 let g:molokai_original = 1
 colorscheme molokai
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#gocode_binary = '/Users/corey/go/src/github.com/stamblerre/gocode'
