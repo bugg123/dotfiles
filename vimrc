@@ -57,6 +57,7 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/deoplete.nvim'
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'SirVer/ultisnips'
+Plug 'ctrlpvim/ctrlp.vim'
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = '/Users/corey/go/src/github.com/stamblerre/gocode'
