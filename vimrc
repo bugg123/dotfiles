@@ -99,7 +99,7 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/deoplete.nvim'
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'SirVer/ultisnips'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 "" call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
