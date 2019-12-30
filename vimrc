@@ -18,6 +18,7 @@ let mapleader = ","
 
 inoremap jk <Esc>
 inoremap kj <Esc>
+map <C-P> :FZF<CR>
 
 " Persistant Undo
 if has('persistent_undo') && isdirectory(expand('~').'/.vim/.undo')
@@ -86,6 +87,7 @@ call plug#begin('~/dotfiles/vim/plugged')
 
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
 Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'fatih/molokai'
@@ -108,4 +110,4 @@ let g:molokai_original = 1
 colorscheme molokai
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#gocode_binary = '/Users/corey/go/src/github.com/stamblerre/gocode'
+let g:deoplete#sources#go#gocode_binary = expand('~').'/go/src/github.com/stamblerre/gocode'
