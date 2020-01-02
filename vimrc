@@ -9,6 +9,7 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+set autowrite
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 set hidden
@@ -63,6 +64,7 @@ map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
   let l:file = expand('%')
@@ -104,10 +106,10 @@ Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'
 
 call plug#end()
-"" call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 let g:rehash256 = 1
 let g:molokai_original = 1
 colorscheme molokai
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = expand('~').'/go/src/github.com/stamblerre/gocode'
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
