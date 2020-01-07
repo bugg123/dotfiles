@@ -49,6 +49,10 @@ set hlsearch
 set ignorecase
 set smartcase
 
+" Completion
+set wildmode=list:longest
+set wildmenu
+
 " Scrolling
 set scrolloff=8
 set sidescrolloff=15
@@ -57,8 +61,6 @@ set sidescroll=1
 " Terraform
 let g:terraform_fmt_on_save=1
 let g:terraform_align=1
-
-execute pathogen#infect()
 
 " Go config
 map <C-n> :cnext<CR>
@@ -80,16 +82,33 @@ autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+
+let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
-let g:go_auto_sameids = 1
+let g:go_fmt_fail_silently = 1
+
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
+let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
+let g:go_highlight_structs = 1
 let g:go_highlight_generate_tags = 1
+let g:go_highlight_space_tab_error = 0
+let g:go_highlight_array_whitespace_error = 0
+let g:go_highlight_trailing_whitespace_error = 0
+let g:go_highlight_extra_types = 1
+
+" ripgrep
+if executable('rg')
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+  set grepprg=rg\ --vimgrep
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+endif
+
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>e :FZF -m<CR>
 
 call plug#begin('~/dotfiles/vim/plugged')
 
@@ -117,5 +136,5 @@ let g:molokai_original = 1
 colorscheme molokai
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#gocode_binary = expand('~').'/go/src/github.com/stamblerre/gocode'
+"" "let g:deoplete#sources#go#gocode_binary = expand('~').'/go/src/github.com/stamblerre/gocode'
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
