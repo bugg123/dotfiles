@@ -9,6 +9,7 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+set autowrite
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 set hidden
@@ -68,6 +69,7 @@ map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 autocmd FileType go nnoremap <leader>d :GoDecls<CR>
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
   let l:file = expand('%')
@@ -89,9 +91,11 @@ let g:go_fmt_fail_silently = 1
 
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_generate_tags = 1
