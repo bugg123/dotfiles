@@ -42,7 +42,6 @@ export AWS_SDK_LOAD_CONFIG=true
 alias ss='gource --seconds-per-day 0.1 --follow-user "Corey Hinkle" --hide filenames,dirnames -f'
 
 alias vi='vim'
-alias g='git'
 alias show='defaults write com.apple.finder AppleShowAllFiles TRUE'
 alias hide='defaults write com.apple.finder AppleShowAllFiles FALSE'
 alias clearDSstore='find . -type f -name ".DS_Store" exec rm -f {} \;'
@@ -61,10 +60,11 @@ alias gd='git number diff'
 alias gm='git merge'
 alias gf='git fetch'
 alias dev='git checkout dev'
-alias gmacs='gn -c emacs'
 alias gim='gn -c vim'
 alias grm='gn -c rm'
 alias gw='./gradlew'
+
+alias tf='terraform'
 
 alias ktok='export TOKEN=$(kubectl describe secret -n kube-system $(kubectl get secrets -n kube-system | grep default | cut -f1 -d " ") | grep -E "^token" | cut -f2 -d":" | tr -d "\t" | tr -d " ")'
 alias kminiapi='export APISERVER=$(kubectl config view | rg -A1 ".minikube" | rg https | cut -f 2- -d ":" | tr -d " ")'
@@ -81,7 +81,6 @@ fpath=(~/.zsh $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); export FZF_TMUX=1; fi
 
 eval "$(direnv hook zsh)"
 zstyle ':urlglobber' url-other-schema
