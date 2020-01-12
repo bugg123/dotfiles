@@ -66,6 +66,7 @@ map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 autocmd FileType go nnoremap <leader>d :GoDecls<CR>
+autocmd FileType go nnoremap <leader>f :GoDeclsDir<CR>
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 " run :GoBuild or :GoTestCompile based on the go file
@@ -119,5 +120,4 @@ let g:molokai_original = 1
 colorscheme molokai
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#gocode_binary = expand('~').'/go/src/github.com/stamblerre/gocode'
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
