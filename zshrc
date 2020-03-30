@@ -1,7 +1,7 @@
 # zmodload zsh/zprof
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/corey/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 DEFAULT_USER="corey"
@@ -87,9 +87,6 @@ alias zim='vim ~/.zshrc'
 
 fpath=(~/.zsh $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
-
-source /Users/corey/.zsh/zsh-git-prompt/zshrc.sh
-export GIT_PROMPT_EXECUTABLE="haskell"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
