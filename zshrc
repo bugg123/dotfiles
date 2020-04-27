@@ -73,6 +73,7 @@ alias grm='gn -c rm'
 alias gw='./gradlew'
 
 alias tf='terraform'
+alias tg='terragrunt'
 
 alias ktok='export TOKEN=$(kubectl describe secret -n kube-system $(kubectl get secrets -n kube-system | grep default | cut -f1 -d " ") | grep -E "^token" | cut -f2 -d":" | tr -d "\t" | tr -d " ")'
 alias kminiapi='export APISERVER=$(kubectl config view | rg -A1 ".minikube" | rg https | cut -f 2- -d ":" | tr -d " ")'
