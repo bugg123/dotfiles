@@ -13,6 +13,7 @@ set autowrite
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 set hidden
+set updatetime=100
 
 syntax on
 let mapleader = ","
@@ -63,6 +64,11 @@ set sidescroll=1
 let g:terraform_fmt_on_save=1
 let g:terraform_align=1
 
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-v>"
+
 " Go config
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
@@ -88,6 +94,9 @@ autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
+let g:go_info_mode = 'guru'
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 let g:go_fmt_fail_silently = 1
 
 let g:go_auto_type_info = 1
@@ -136,6 +145,9 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 let g:rehash256 = 1
@@ -143,5 +155,6 @@ let g:molokai_original = 1
 colorscheme molokai
 
 let g:deoplete#enable_at_startup = 1
-"" "let g:deoplete#sources#go#gocode_binary = expand('~').'/go/src/github.com/stamblerre/gocode'
+let g:deoplete#auto_completion_start_length = 3
+"" let g:deoplete#sources#go#gocode_binary = expand('~').'/go/src/github.com/stamblerre/gocode'
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
