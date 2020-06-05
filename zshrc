@@ -16,7 +16,7 @@ DEFAULT_USER="corey"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(osx extract docker kubectl kops helm jenv aws terraform go)
+plugins=(osx extract docker kubectl kops helm jenv aws terraform golang)
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin"
@@ -28,6 +28,7 @@ export PATH="$PATH:$HOME/go/bin"
 # Add the GNU utitlities to my path
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="$PATH:/Library/Graal/graalvm-ce-1.0.0-rc13/Contents/Home/bin"
+export PATH="${PATH}:${HOME}/.krew/bin"
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
