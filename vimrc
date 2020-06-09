@@ -156,5 +156,6 @@ colorscheme molokai
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_completion_start_length = 3
+set completeopt+=noselect
 "" let g:deoplete#sources#go#gocode_binary = expand('~').'/go/src/github.com/stamblerre/gocode'
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
