@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # zmodload zsh/zprof
 
 # Path to your oh-my-zsh installation.
@@ -16,19 +23,17 @@ DEFAULT_USER="bugg123"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(osx extract docker kubectl kops helm jenv aws terraform go)
+plugins=(osx extract docker kubectl kops helm jenv aws terraform golang)
 
 # User configuration
 
 # Add better curl to path
-# export MANPATH="/usr/local/man:$MANPATH"
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/games:/usr/sbin:/usr/bin:/usr/games:/sbin:/bin:/home/linuxbrew/.linuxbrew/opt/fzf/bin"
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/.p10k.zsh
 source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export CLICOLOR=1
@@ -96,3 +101,5 @@ if [ -f '/home/bugg123/google-cloud-sdk/path.zsh.inc' ]; then . '/home/bugg123/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/bugg123/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/bugg123/google-cloud-sdk/completion.zsh.inc'; fi
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
