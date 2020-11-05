@@ -41,6 +41,8 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+export CLOUDSDK_PYTHON="/usr/local/opt/python@3.8/libexec/bin/python"
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
@@ -88,6 +90,8 @@ alias kg='k get'
 alias kgn='kg nodes'
 alias kd='kubectl describe'
 alias kc='kubectl create'
+alias kctx='kubectx'
+alias kns='kubens'
 
 alias zsource='. ~/.zshrc'
 alias zmacs='emacs ~/.zshrc'
