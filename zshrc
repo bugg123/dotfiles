@@ -40,13 +40,14 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export TERM=xterm-256color
 
-export EDITOR=vim
+export EDITOR=nvim
 export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 export AWS_SDK_LOAD_CONFIG=true
 
 alias ss='gource --seconds-per-day 0.1 --follow-user "Corey Hinkle" --hide filenames,dirnames -f'
 
-alias vi='vim'
+alias vi='nvim'
+alias vim='nvim'
 alias show='defaults write com.apple.finder AppleShowAllFiles TRUE'
 alias hide='defaults write com.apple.finder AppleShowAllFiles FALSE'
 alias clearDSstore='find . -type f -name ".DS_Store" exec rm -f {} \;'
@@ -65,7 +66,7 @@ alias gd='git number diff'
 alias gm='git merge'
 alias gf='git fetch'
 alias dev='git checkout dev'
-alias gim='gn -c vim'
+alias gim='gn -c nvim'
 alias grm='gn -c rm'
 alias gw='./gradlew'
 
@@ -78,6 +79,8 @@ alias kg='k get'
 alias kgn='kg nodes'
 alias kd='kubectl describe'
 alias kc='kubectl create'
+alias kctx='kubectx'
+alias kns='kubens'
 
 alias zsource='. ~/.zshrc'
 alias zmacs='emacs ~/.zshrc'
