@@ -65,7 +65,7 @@ let g:terraform_fmt_on_save=1
 let g:terraform_align=1
 
 " Ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsJumpForwardTrigger="<c-b>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-v>"
 
@@ -93,6 +93,7 @@ autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
 let g:go_implements_mode = 'gopls'
+let g:go_code_completion_enabled = 0
 
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
@@ -135,21 +136,24 @@ Plug 'junegunn/vim-xmark', { 'do': 'make' }
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'hashivim/vim-terraform'
+Plug 'yorinasub17/vim-terragrunt', { 'tag': 'main' }
+Plug 'juliosueiras/vim-terraform-snippets'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'sebdah/vim-delve'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/molokai'
 Plug 'cespare/vim-toml'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else 
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else 
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -164,8 +168,23 @@ let g:rehash256 = 1
 let g:molokai_original = 1
 colorscheme molokai
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_completion_start_length = 3
-set completeopt+=noselect
-"" let g:deoplete#sources#go#gocode_binary = expand('~').'/go/src/github.com/stamblerre/gocode'
-call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#auto_completion_start_length = 3
+" "" let g:deoplete#sources#go#gocode_binary = expand('~').'/go/src/github.com/stamblerre/gocode'
+" call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
