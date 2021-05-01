@@ -32,6 +32,7 @@ plugins=(osx extract docker kubectl kops helm jenv aws terraform golang)
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/games:/usr/sbin:/usr/bin:/usr/games:/sbin:/bin:/home/linuxbrew/.linuxbrew/opt/fzf/bin"
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
+export PATH="/home/zyp/go/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
